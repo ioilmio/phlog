@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', '~>0.83.0'
   gem 'simplecov', require: false
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 group :development do
