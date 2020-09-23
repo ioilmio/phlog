@@ -4,23 +4,23 @@ class UsersController < ApplicationController
   end
 
   def show
-    set_user
+    @user = User.find(params[:id])
   end
 
   def following
-    set_user
+    # set_user
     render 'show_follow'
   end
 
   def followers
-    set_user
+    # set_user
     render 'show_follow'
   end
 
   private
 
   def set_user
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
   end
 
   def user_params
