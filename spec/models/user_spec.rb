@@ -1,4 +1,6 @@
 require 'rails_helper'
+require 'database_cleaner/active_record'
+DatabaseCleaner.strategy = :truncation
 
 RSpec.describe User, type: :model do
   describe 'associations' do
@@ -38,6 +40,7 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:password) }
     # it { should validate_uniqueness_of(:email).case_insensitive }
   end
+  DatabaseCleaner.clean
 
   it 'should follow user' do
     user = User.create!(
@@ -57,8 +60,9 @@ RSpec.describe User, type: :model do
     user.follow(user2)
     expect(user.following.count).to eq(1)
     expect(user.following?(user2)).to be_truthy
-
   end
+  DatabaseCleaner.clean
+
   user = User.create!(
     username: 'user',
     fullname: 'user one',

@@ -17,7 +17,7 @@
                password_confirmation: password)
 end
 users = User.order(:created_at).take(6)
-50.times do
+10.times do
   content = Faker::Lorem.sentence
   users.each { |user| user.opinions.create!(content: content) }
 end

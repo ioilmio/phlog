@@ -4,7 +4,7 @@ RSpec.describe 'opinions/edit', type: :view do
   before(:each) do
     @opinion = assign(:opinion, Opinion.create!(
                                   content: 'MyText',
-                                  user: nil
+                                  user_id: 1
                                 ))
   end
 
@@ -13,8 +13,6 @@ RSpec.describe 'opinions/edit', type: :view do
 
     assert_select 'form[action=?][method=?]', opinion_path(@opinion), 'post' do
       assert_select 'textarea[name=?]', 'opinion[content]'
-
-      assert_select 'input[name=?]', 'opinion[user_id]'
     end
   end
 end

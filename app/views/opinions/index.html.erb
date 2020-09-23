@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Opinions</h1>
-
 <table>
   <thead>
     <tr>
@@ -26,6 +25,7 @@
 
 <br>
 <%if user_signed_in?%>
+<%= render 'users/stats'%>
 <%= link_to 'New Opinion', new_opinion_path %>
 <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
 <%else%>

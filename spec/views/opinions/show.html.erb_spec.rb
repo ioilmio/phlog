@@ -4,7 +4,7 @@ RSpec.describe 'opinions/show', type: :view do
   before(:each) do
     @opinion = assign(:opinion, Opinion.create!(
                                   content: 'MyText',
-                                  user: nil
+                                  user_id: 1
                                 ))
   end
 
