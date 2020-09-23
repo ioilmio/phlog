@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   get 'users/index'
   get 'users/show'
   root to: 'opinions#index'

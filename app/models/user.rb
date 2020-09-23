@@ -38,6 +38,13 @@ class User < ApplicationRecord
 
   validates :password_confirmation, presence: true, length: { minimum: 8 }
 
+  def feed
+    following_ids = "SELECT followed_id FROM relationships
+                      WHERE follower_id = :user_id"
+    Opinion.where("user_id IN (#{following_ids})
+                  OR user_id = :user_id", user_id: id)
+  end
+
   def follow(user)
     following << user
   end
