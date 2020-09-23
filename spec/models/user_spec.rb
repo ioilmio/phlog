@@ -36,6 +36,46 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:fullname) }
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password) }
-    it { should validate_uniqueness_of(:email).case_insensitive }
+    # it { should validate_uniqueness_of(:email).case_insensitive }
+  end
+
+  it 'should follow user' do
+    user = User.create!(
+      username: 'user',
+      fullname: 'user one',
+      email: 'user@mail.com',
+      password: 'password',
+      password_confirmation: 'password'
+    )
+    user2 = User.create!(
+      username: 'user',
+      fullname: 'user one',
+      email: 'user2@mail.com',
+      password: 'password',
+      password_confirmation: 'password'
+    )
+    user.follow(user2)
+    expect(user.following.count).to eq(1)
+    expect(user.following?(user2)).to be_truthy
+
+  end
+  user = User.create!(
+    username: 'user',
+    fullname: 'user one',
+    email: 'user111@mail.com',
+    password: 'password',
+    password_confirmation: 'password'
+  )
+  user2 = User.create!(
+    username: 'user',
+    fullname: 'user one',
+    email: 'user100@mail.com',
+    password: 'password',
+    password_confirmation: 'password'
+  )
+  it 'unfollow user' do
+    user.unfollow(user2)
+    expect(user.following.count).to eq(0)
+    expect(user.following?(user2)).to be_falsy
   end
 end
