@@ -16,11 +16,11 @@ RSpec.describe '/opinions', type: :request do
   # Opinion. As you add validations to Opinion, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    skip(user_id: 3, content: 'test')
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    skip(user_id: 3, content: '')
   end
 
   describe 'GET /index' do
