@@ -22,5 +22,12 @@ RSpec.describe Opinion, type: :model do
       opinion2 = user.opinions.create(user_id: user.id, content: '')
       expect(opinion2).not_to be_valid
     end
+    describe 'Attachment' do
+      it 'is valid with image' do
+        opinion3 = user.opinions.new(user_id: user.id, content: 'test image')
+        opinion3.image.attach(io: File.open(file_fixture('0.jpeg')), filename: '0.jpeg', content_type: 'image/jpeg')
+        expect(opinion3.image).to be_attached
+      end
+    end
   end
 end
