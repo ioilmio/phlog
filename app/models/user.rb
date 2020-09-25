@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook github]
 
-  has_many :opinions
+  has_many :opinions, dependent: :destroy
 
   has_many :active_relationships,
            class_name: 'Relationship',
