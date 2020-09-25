@@ -34,6 +34,10 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
+gem 'active_storage_validations', '~> 0.9.0'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+gem "image_processing"
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

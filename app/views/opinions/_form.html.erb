@@ -4,9 +4,21 @@ Write something
   <div class='offset-md-4 col-md-4'>
   <div class="field col-md-4">
     <%= form.text_field :content%> 
+    <span class="image-upload">
+      <%= form.file_field :image, accept: "image/jpeg,image/gif,image/png,image/jpg" %>
+    </span>
     <%= form.submit class:'btn btn-primary rounded mt-2' %>
   </div>
   </div>
 <% end %>
 </div>
 </div>
+<script type="text/javascript">
+$("#micropost_image").bind("change", function() {
+const size_in_megabytes = this.files[0].size/1024/1024;
+if (size_in_megabytes > 5) {
+alert("Maximum file size is 5MB. Please choose a smaller file.");
+$("#micropost_image").val("");
+}
+});
+</script>

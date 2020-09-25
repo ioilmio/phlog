@@ -23,8 +23,8 @@ class OpinionsController < ApplicationController
   def edit; end
 
   def create
-    @opinion = current_user.opinions.new(opinion_params)
-
+    @opinion = current_user.opinions.build(opinion_params)
+    @opinion.image.attach(params[:opinion][:image])
     respond_to do |format|
       if @opinion.save
         format.html { redirect_to @opinion, notice: 'Opinion was successfully created.' }
@@ -67,6 +67,6 @@ class OpinionsController < ApplicationController
   end
 
   def opinion_params
-    params.require(:opinion).permit(:content, :user_id)
+    params.require(:opinion).permit(:content, :user_id, :image)
   end
 end

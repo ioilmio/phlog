@@ -15,10 +15,13 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6 p-3 mt-2 mx-auto ">
-        <% @user.opinions.each do |opinion| %>
-        <div class="mt-2 mb- bg-light p-4">
-        <%= opinion.content%>
+    <div class="col-md-6 p-3 mt-2 mx-auto rounded ">
+        <% @user.opinions.most_recent.each do |opinion| %>
+        <div class="mt-2 mb- bg-light p-4 rounded">
+            <%= image_tag opinion.display_image if opinion.image.attached? %>
+            <div class="card-body">
+                <%= opinion.content%>
+            </div>
         <div class="mt-2">
         <%= time_ago_in_words(opinion.created_at)%> ago
         </div>
