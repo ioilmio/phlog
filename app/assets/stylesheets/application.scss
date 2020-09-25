@@ -19,6 +19,9 @@ h1 {
     text-decoration: none;
   }
 }
+*{
+  border: 1px solid red;
+}
 
 .opi-box {
   padding: 1rem;
@@ -37,6 +40,10 @@ h1 {
   .card-body {
     font-size: 1.5em;
     text-align: left;
+    img{
+      height: auto;
+      width: 100%;
+    }
   }
 
   .card-footer {
@@ -61,6 +68,6 @@ h1 {
 }
 
 .time-ago {
-  font-size: 0.6em;
-  margin-right: auto;
+  font-size: .5em;
+  text-align: right;
 }
