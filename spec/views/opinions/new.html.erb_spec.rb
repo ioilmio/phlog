@@ -13,8 +13,6 @@ RSpec.describe 'opinions/new', type: :view do
 
     assert_select 'form[action=?][method=?]', opinions_path, 'post' do
       assert_select 'textarea[name=?]', 'opinion[content]'
-
-      assert_select 'input[name=?]', 'opinion[user_id]'
     end
   end
 end

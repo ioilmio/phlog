@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
-  root to:'opinions#index'
+  root to: 'opinions#index'
   resources :opinions
-  devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: %i[create destroy]
+  get 'users/index'
+  get 'users/show'
+  get 'relationships/create'
+  get 'relationships/destroy'
 end
