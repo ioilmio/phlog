@@ -1,11 +1,16 @@
 class OpinionsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :signed_in_only, only: %i[new create edit destroy]
   before_action :set_opinion, only: %i[show edit update destroy]
 
   def index
     @opinions = Opinion.all
+    @opinion = Opinion.new
   end
 
-  def show; end
+  def show
+    @opinion = Opinion.find(params[:id])
+  end
 
   def new
     @opinion = Opinion.new
@@ -51,6 +56,10 @@ class OpinionsController < ApplicationController
 
   def set_opinion
     @opinion = Opinion.find(params[:id])
+  end
+
+  def signed_in_only
+    redirect_to new_user_session_path unless current_user
   end
 
   def opinion_params

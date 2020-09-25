@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<%=render 'layouts/header'%>
+<%@opinions.each do |opinion|%>
+<div>
   <strong>Content:</strong>
-  <%= @opinion.content %>
-</p>
+  <%= opinion.content %>
+</div>
 
-<p>
+<div>
   <strong>User:</strong>
-  <%= @opinion.user_id %>
-</p>
+  <%= @user.username %>
+</div>
+<% end %>
 
-<%= link_to 'Edit', edit_opinion_path(@opinion) %> |
-<%= link_to 'Back', opinions_path %>
+<%= link_to 'Edit', edit_opinion_path(@opinion), class:'btn btn-primary mr-2'%>
+<%= link_to 'Back', opinions_path, class:'btn btn-danger' %>

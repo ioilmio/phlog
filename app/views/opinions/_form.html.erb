@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
+  <div class='offset-md-4 col-md-4'>
+  <div class="field col-md-4">
+    <%= form.text_area :content%> 
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="btn btn-default mt-2">
+    <%= form.submit class:'btn btn-primary rounded' %>
+  </div>
+  </div>
   </div>
 <% end %>

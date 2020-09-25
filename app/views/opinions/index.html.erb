@@ -1,37 +1,29 @@
-<p id="notice"><%= notice %></p>
-<div class='nav'>
-  <%if user_signed_in?%>
-    <%= render 'users/stats'%>
-    <%= link_to 'New Opinion', new_opinion_path %>
-    <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
-  <%else%>
-    <%= link_to 'Sign up', new_user_registration_path %>
-    <%= link_to 'Log in', new_user_session_path %>
-  <%end%>
-</div>
-
-<h1>Opinions</h1>
-<div>
-  <div>
-    <div>
-      <div>Content</div>
-      <div>User</div>
-      <div colspan="3"></div>
-    </div>
-  </div>
-
-  <div>
+<%= render 'layouts/header'%>
+<% if user_signed_in?%>
+  <div class="col-md-6 offset-md-3">
     <% @opinions.each do |opinion| %>
-      <div>
-        <div><%= opinion.content %></div>
-        <div><%= opinion.user_id %></div>
-        <div><%= link_to 'Show', opinion %></div>
-        <div><%= link_to 'Edit', edit_opinion_path(opinion) %></div>
-        <div><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      <div class="opi-box card">
+        <div class="card-text opi-author">
+          <%= gravatar_for @user %>
+          <%= link_to "#{opinion.user.username}", user_path(opinion.user_id)  %>
+        </div>
+        <div class="card-body">
+          <%= opinion.content %>
+          <div class="time-ago mr-auto">
+          <%= time_ago_in_words(opinion.created_at)%> ago
+          </div>
+        </div>
+        <div class="card-footer">
+        <span><%= link_to 'Show', opinion %></span>
+        <% if current_user.id == opinion.user_id%>
+        <span><%= link_to 'Edit', edit_opinion_path(opinion) %></span>
+        <span><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        <%end%>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
-
+<%end%>
 <br>
 
