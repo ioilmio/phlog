@@ -6,5 +6,6 @@ class CreateOpinions < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :opinions, %i[user_id created_at]
   end
 end

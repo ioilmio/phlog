@@ -4,12 +4,16 @@ class OpinionsController < ApplicationController
   before_action :set_opinion, only: %i[show edit update destroy]
 
   def index
-    @opinions = Opinion.all
-    @opinion = Opinion.new
+    @opinions = Opinion.all.most_recent
+    return unless user_signed_in?
+
+    @opinion = current_user.opinions.build
+    @feed = current_user.feed.most_recent
   end
 
   def show
     @opinion = Opinion.find(params[:id])
+    @opinions = current_user.opinions.most_recent
   end
 
   def new

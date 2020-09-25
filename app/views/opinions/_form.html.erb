@@ -1,23 +1,12 @@
-<%= form_with(model: opinion, local: true) do |form| %>
-  <% if opinion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(opinion.errors.count, "error") %> prohibited this opinion from being saved:</h2>
-
-      <ul>
-        <% opinion.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<div class="opi-form bg-light p-3 mt-4 rounded-lg">
+Write something
+<%= form_with(model: @opinion, local: true) do |form| %>
   <div class='offset-md-4 col-md-4'>
   <div class="field col-md-4">
-    <%= form.text_area :content%> 
-
-  <div class="btn btn-default mt-2">
-    <%= form.submit class:'btn btn-primary rounded' %>
-  </div>
+    <%= form.text_field :content%> 
+    <%= form.submit class:'btn btn-primary rounded mt-2' %>
   </div>
   </div>
 <% end %>
+</div>
+</div>

@@ -2,7 +2,7 @@
 // @import "bootstrap-sprockets";
 body {
   background-color: rgb(66, 108, 163);
-  color: rgb(161, 161, 161);
+  color: rgb(126, 126, 126);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -19,7 +19,9 @@ h1 {
     text-decoration: none;
   }
 }
-
+*{
+  // border: 1px solid red;
+}
 .opi-box {
   padding: 1rem;
   text-align: center;
