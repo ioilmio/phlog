@@ -24,7 +24,7 @@ class OpinionsController < ApplicationController
 
   def create
     @opinion = current_user.opinions.build(opinion_params)
-    @opinion.image.attach(params[:opinion][:image])
+    @opinion.image.attach(params[:opinion][:image]) if params[:opinion][:image].present?
     respond_to do |format|
       if @opinion.save
         format.html { redirect_to @opinion, notice: 'Opinion was successfully created.' }
@@ -37,8 +37,10 @@ class OpinionsController < ApplicationController
   end
 
   def update
+    @opinion.image.attach(params[:opinion][:image]) if params[:opinion][:image].present?
     respond_to do |format|
       if @opinion.update(opinion_params)
+
         format.html { redirect_to @opinion, notice: 'Opinion was successfully updated.' }
         format.json { render :show, status: :ok, location: @opinion }
       else

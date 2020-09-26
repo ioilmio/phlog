@@ -9,8 +9,11 @@
           <%= link_to "#{opinion.user.username}", user_path(opinion.user_id)  %>
         </div>
         <div class="card-body">
+          <%= image_tag opinion.display_image if opinion.image.attached? %>
+          <div>
           <%= opinion.content %>
-          <div class="time-ago mr-auto">
+          </div>
+          <div class="time-ago text-align-right">
           <%= time_ago_in_words(opinion.created_at)%> ago
           </div>
         </div>

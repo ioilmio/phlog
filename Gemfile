@@ -48,8 +48,10 @@ group :development, :test do
   gem 'hirb'
   gem 'rspec-rails'
   gem 'rubocop', '~>0.83.0'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov', require: false
+  gem 'webdrivers'
 end
 
 group :development do
