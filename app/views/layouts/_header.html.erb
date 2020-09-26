@@ -10,7 +10,7 @@
               <%= link_to 'New Opinion', new_opinion_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-              <%= link_to 'My Profile', current_user, class: 'nav-link' %>
+            <%= link_to "Hello,#{current_user.username}", current_user, class: 'nav-link' %>
           </li>
           <li>
           <div class="nav-stats">

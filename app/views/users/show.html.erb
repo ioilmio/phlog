@@ -1,5 +1,4 @@
 <%=render 'layouts/header'%>
-<%= render 'stats'%>
 <%= render 'follow_form' if user_signed_in?%>
 
 <div class="row">
@@ -9,18 +8,27 @@
                 <%= gravatar_for @user %>
                 <%= @user.username %>
             </h1>
+            <%= render 'stats'%>
         </section>
 
     </aside>
 </div>
 
 <div class="row">
-    <div class="col-md-6 p-3 mt-2 mx-auto rounded ">
-        <% @user.opinions.most_recent.each do |opinion| %>
-        <div class="mt-2 mb- bg-light p-4 rounded">
-            <%= image_tag opinion.display_image if opinion.image.attached? %>
+    <div class="col-md-9 p-3 mt-2 mx-auto rounded ">
+     <%= render 'opinions/form', opinion: @new_opinion %>
+        <% @my_opinion.each do |opinion| %>
+        <div class="col-md-6 offset-md-3 mt-2 mb-2 bg-light p-4 rounded">
             <div class="card-body">
+            <div class="mb-2">
+                            <%= gravatar_for @user %>
+            </div>
+<div class="d-flex justify-content-center">
+                <%= image_tag opinion.display_image if opinion.image.attached? %>
+</div>
+                <div class="mt-2 text-center">
                 <%= opinion.content%>
+                </div>
             </div>
         <div class="mt-2">
         <%= time_ago_in_words(opinion.created_at)%> ago

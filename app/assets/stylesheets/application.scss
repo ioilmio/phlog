@@ -1,15 +1,19 @@
-@import "bootstrap";
-// @import "bootstrap-sprockets";
+@import 'bootstrap';
+$bg-color: rgb(67, 108, 163);
+$color: rgb(126, 126, 126);
+$clear: rgb(255, 255, 255);
+
 body {
-  background-color: rgb(66, 108, 163);
-  color: rgb(126, 126, 126);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: $bg-color;
+  color: $color;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+  'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 h1 {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 .follow-stats {
@@ -19,28 +23,43 @@ h1 {
     text-decoration: none;
   }
 }
-*{
-  border: 1px solid red;
+
+// * {
+//   border: 1px solid #ff0;
+// }
+
+.follow {
+  background-color: $clear;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2rem;
+
+  .follow-avatar {
+    height: auto;
+    width: 100%;
+  }
 }
 
 .opi-box {
+  margin-top: 1em;
   padding: 1rem;
   text-align: center;
-  margin-top: 1em;
 
   a {
     text-decoration: none;
   }
 
   .opi-author {
-    text-align: left;
     margin-left: 2em;
+    text-align: left;
   }
 
   .card-body {
     font-size: 1.5em;
     text-align: left;
-    img{
+
+    img {
       height: auto;
       width: 100%;
     }
@@ -50,21 +69,17 @@ h1 {
     text-align: right;
 
     a {
-      text-decoration: none;
       text-align: right;
+      text-decoration: none;
     }
   }
-}
-
-* {
-  // border: 1px solid red;
 }
 
 .opi-form {
   display: flex;
   flex-direction: column;
-  width: 60%;
   margin: 0 auto;
+  width: 60%;
 }
 
 .time-ago {
