@@ -3,7 +3,7 @@ class Opinion < ApplicationRecord
   has_one_attached :image
   validates :user_id, presence: true
   validates :content, presence: true
-  scope :most_recent, -> { order(created_at: :desc)}
+  scope :most_recent, -> { order(created_at: :desc) }
 
   validates :image, attached: false, content_type: { in: ['image/jpeg', 'image/gif', 'image/png', 'image/jpg'],
                                                      message: 'must be a valid image format' },

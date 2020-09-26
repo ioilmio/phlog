@@ -6,8 +6,14 @@ $clear: rgb(255, 255, 255);
 body {
   background-color: $bg-color;
   color: $color;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-  'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family:
+    'Lucida Sans',
+    'Lucida Sans Regular',
+    'Lucida Grande',
+    'Lucida Sans Unicode',
+    Geneva,
+    Verdana,
+    sans-serif;
 }
 
 h1 {
@@ -83,6 +89,6 @@ h1 {
 }
 
 .time-ago {
-  font-size: .5em;
+  font-size: 0.5em;
   text-align: right;
 }
