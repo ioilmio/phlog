@@ -24,6 +24,3 @@ Things you may want to cover:
 * ...
 
 
-aws:
-    AWS_SECRET: cwJn1jGoY2+vC0HHp1Vv2PPoc0Nj7+oB/RhUs62F
-    AWS_ID: AKIASATLI3RCCNHL3IMO 
