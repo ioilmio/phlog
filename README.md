@@ -64,7 +64,7 @@ then run ``bundle install``
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/ioilmio/Enumerable/issues).
+Feel free to check the [issues page](https://github.com/ioilmio/phlog/issues).
 
 ## Show your support
 
