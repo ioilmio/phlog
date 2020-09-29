@@ -1,3 +1,6 @@
+<% if user_signed_in?%>
+  <%= render 'layouts/header'%>
+<%end%>
 
 <div class="col-md-4 offset-md-4 mb-5">
 <h1 class="center">Edit your profile </h1>
@@ -5,11 +8,12 @@
 
 
 <div class="col-md-4 offset-md-4">
+
+
 <%= form_with(model: @user, local: true) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
-
-<%= f.label :name %>
-<%= f.text_field :name, class: 'form-control' %>
+<%= f.label :username %>
+<%= f.text_field :username, class: 'form-control' %>
 <%= f.label :email %>
 <%= f.email_field :email, class: 'form-control' %>
 <%= f.label :password %>

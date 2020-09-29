@@ -12,8 +12,4 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: %i[create destroy]
-  get 'users/index'
-  get 'users/show'
-  get 'relationships/create'
-  get 'relationships/destroy'
 end
