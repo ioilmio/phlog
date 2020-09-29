@@ -14,6 +14,7 @@ class OpinionsController < ApplicationController
   def show
     @opinion = Opinion.find(params[:id])
     @opinions = current_user.opinions.most_recent
+    @user = @opinion.user
   end
 
   def new

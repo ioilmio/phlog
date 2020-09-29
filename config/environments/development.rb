@@ -3,7 +3,7 @@ Rails.application.configure do
   config.after_initialize do
     # Enable bullet in your application
     Bullet.enable = true
-    Bullet.alert = true
+    # Bullet.alert = true
     Bullet.console = true
   end
   # In the development environment your application's code is reloaded on

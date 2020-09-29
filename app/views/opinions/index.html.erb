@@ -5,7 +5,7 @@
     <% @opinions.each do |opinion| %>
       <div class="opi-box card">
         <div class="card-text opi-author">
-          <%= gravatar_for @user %>
+          <%= gravatar_for @user.email %>
           <%= link_to "#{opinion.user.username}", user_path(opinion.user_id)  %>
         </div>
         <div class="card-body">

@@ -4,8 +4,8 @@
 <div class="row">
   <div class="col-md-4 bg-light offset-md-4 p-4 mb-2 rounded">
     <div class="card-body">
-      <%= gravatar_for @user%>
-      <%= @user.username %>
+      <%= gravatar_for opinion.user%>
+      <%= opinion.user.username %>
       <%= image_tag opinion.display_image if opinion.image.attached? %>
         <div class="time-ago justify-content-end d-flex">
           <%= time_ago_in_words(opinion.created_at)%>
