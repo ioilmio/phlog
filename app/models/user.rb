@@ -41,7 +41,7 @@ class User < ApplicationRecord
 
   validates :password_confirmation, presence: true, length: { minimum: 8 }
 
-  after_commit :add_default_cover, on: %i[create update]
+  # after_commit :add_default_cover, on: %i[create update]
 
   def not_following_users
     User.all.where.not(id: following.select(:id)).where.not(id: id).order(created_at: :desc).take(3)
@@ -78,12 +78,12 @@ class User < ApplicationRecord
     end
   end
 
-  private
+  # private
 
-  def add_default_cover
-    return if cover.attached?
+  # def add_default_cover
+  #   return if cover.attached?
 
-    cover.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'logo', 'g891.png')),
-                 filename: 'g891.png', content_type: 'image/png')
-  end
+  #   cover.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'logo', 'g891.png')),
+  #                filename: 'g891.png', content_type: 'image/png')
+  # end
 end

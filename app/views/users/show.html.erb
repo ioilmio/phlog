@@ -1,15 +1,15 @@
 <%=render 'layouts/header'%>
 <div class="cover">
-<%= image_tag(current_user.cover.attach) if current_user.cover.attached? %>
-<%if current_user == @user%>
-    <%if current_user.cover.attached?%>
-            <%= form_with(model: current_user.cover.attachment, local: true, method: 'post') do |form| %>
+<%# <%= image_tag(@user.cover.attach) if @user.cover.attached? %> %>
+<%if current_user == @user %>
+    <%# <%if current_user.cover.attached?%> %>
+            <%= form_with(model: @user, local: true) do |form| %>
             <%= form.label 'change cover image'%>
             <%= form.file_field :cover, accept: "image/jpeg,image/gif,image/png,image/jpg" %>
             <%= form.submit class:'btn btn-primary rounded mt-2' %>
             <%end %>
     <%end%>
-<%end%>
+<%# <%end%> %>
 </div>
 
 <div class="row">

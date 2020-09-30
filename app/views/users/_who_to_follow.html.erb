@@ -3,7 +3,7 @@
     <div class="user-to-follow">
     <div>
         <%= gravatar_for user%>
-        <%=link_to user.username %>
+        <%=link_to user.username, user_path(user) %>
     </div>
     </div>
 <%end%>

@@ -18,11 +18,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     @user.cover.attach(params[:cover]) if @user.cover.attached?
     if @user.update(user_params)
 
-      redirect_to edit_user_path(current_user.id), notice: 'user was successfully updated.'
+      sign_in_and_redirect @user, notice: 'user was successfully updated.'
     else
       render :edit
     end
