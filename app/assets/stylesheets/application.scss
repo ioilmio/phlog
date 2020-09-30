@@ -1,4 +1,4 @@
-@import "bootstrap";
+@import 'bootstrap';
 $bg-color: rgb(67, 108, 163);
 $color: rgb(126, 126, 126);
 $clear: rgb(255, 255, 255);
@@ -7,10 +7,10 @@ $sidebar: rgb(33, 51, 70);
 body {
   color: $color;
   font-family:
-    "Lucida Sans",
-    "Lucida Sans Regular",
-    "Lucida Grande",
-    "Lucida Sans Unicode",
+    'Lucida Sans',
+    'Lucida Sans Regular',
+    'Lucida Grande',
+    'Lucida Sans Unicode',
     Geneva,
     Verdana,
     sans-serif;
@@ -133,10 +133,37 @@ h1 {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 60%;
+  width: 50%;
 }
 
 .time-ago {
   font-size: 0.5em;
   text-align: right;
+}
+// * {
+//   border: 1px solid red;
+// }
+.who_to_follow {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 18vw;
+  margin-left: auto;
+  // border: 1px solid red;
+
+  .user-to-follow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    // border: 1px solid yellow;
+    margin-bottom: 1rem;
+  }
+}
+
+.cover {
+  // background-color: red;
+  height: 100%;
+  width: auto;
+  margin-left: 40%;
 }

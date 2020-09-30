@@ -18,7 +18,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
+    @user = current_user
+    @user.cover.attach(params[:cover]) if @user.cover.attahced?
     if @user.update(user_params)
       redirect_to @user, notice: 'user was successfully updated.'
     else
