@@ -1,11 +1,10 @@
 <div class="my-2">
-<%# <% unless current_user == @user %> %>
-
+<%if @user != current_user%>
     <% if current_user.following?(@user) %>
         <%= render 'unfollow' %>
     <% else %>
         <%= render 'follow' %>
     <%end %>
-<%# <%end %> %>
+<%end%>
 
 </div>
