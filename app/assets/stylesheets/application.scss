@@ -1,19 +1,23 @@
-@import 'bootstrap';
+@import "bootstrap";
 $bg-color: rgb(67, 108, 163);
 $color: rgb(126, 126, 126);
 $clear: rgb(255, 255, 255);
+$sidebar: rgb(33, 51, 70);
 
 body {
-  background-color: $bg-color;
   color: $color;
   font-family:
-    'Lucida Sans',
-    'Lucida Sans Regular',
-    'Lucida Grande',
-    'Lucida Sans Unicode',
+    "Lucida Sans",
+    "Lucida Sans Regular",
+    "Lucida Grande",
+    "Lucida Sans Unicode",
     Geneva,
     Verdana,
     sans-serif;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 h1 {
@@ -22,17 +26,61 @@ h1 {
   padding: 0;
 }
 
-.follow-stats {
+.user-gravatar-name {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  height: 20vh;
+}
+
+.navi-icon {
+  color: $sidebar;
+}
+
+.navi-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100vw;
+  background-color: $bg-color;
+}
+
+.navi-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15vw;
+  min-height: 100vh;
+  background-color: $sidebar;
+
+  .follow-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   a {
-    text-decoration: none;
+    color: $bg-color;
   }
 }
 
-// * {
-//   border: 1px solid #ff0;
-// }
+.opi-content {
+  font-size: 1.5rem;
+  background-color: $clear;
+  text-align: center;
+}
+
+.follow-stats {
+  color: $bg-color;
+}
 
 .follow {
   background-color: $clear;

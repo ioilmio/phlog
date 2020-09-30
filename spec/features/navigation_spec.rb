@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User navigation', type: :feature, js: true do
+RSpec.describe 'User navigation', type: :feature do
   scenario 'can log in after sign up' do
     visit root_path
     click_on 'Sign up'
@@ -28,14 +28,13 @@ RSpec.describe 'User navigation', type: :feature, js: true do
     click_button 'Sign up'
     sleep 1
     click_on 'Settings'
-    expect(page).to have_content('Edit your profile')
-    fill_in 'user_name', with: 'new username'
+    fill_in 'user_username', with: 'new username'
     fill_in 'user_email', with: 'test@example.com'
     fill_in 'user_password', with: 'test password'
     fill_in 'user_password_confirmation', with: 'test password'
     click_on 'Save changes'
     expect(page).to have_content('new username')
-    sleep 1
+    sleep 5
   end
   scenario 'can create new opinion on new opinion page' do
     visit root_path

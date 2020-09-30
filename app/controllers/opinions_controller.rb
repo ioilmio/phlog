@@ -14,6 +14,7 @@ class OpinionsController < ApplicationController
   def show
     @opinion = Opinion.find(params[:id])
     @opinions = current_user.opinions.most_recent
+    @user = @opinion.user
   end
 
   def new
@@ -25,37 +26,25 @@ class OpinionsController < ApplicationController
   def create
     @opinion = current_user.opinions.build(opinion_params)
     @opinion.image.attach(params[:opinion][:image]) if params[:opinion][:image].present?
-    respond_to do |format|
-      if @opinion.save
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully created.' }
-        format.json { render :show, status: :created, location: @opinion }
-      else
-        format.html { render :new }
-        format.json { render json: @opinion.errors, status: :unprocessable_entity }
-      end
+    if @opinion.save
+      redirect_to @opinion, notice: 'Opinion was successfully created.'
+    else
+      render :new
     end
   end
 
   def update
     @opinion.image.attach(params[:opinion][:image]) if params[:opinion][:image].present?
-    respond_to do |format|
-      if @opinion.update(opinion_params)
-
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @opinion }
-      else
-        format.html { render :edit }
-        format.json { render json: @opinion.errors, status: :unprocessable_entity }
-      end
+    if @opinion.update(opinion_params)
+      redirect_to @opinion, notice: 'Opinion was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @opinion.destroy
-    respond_to do |format|
-      format.html { redirect_to opinions_url, notice: 'Opinion was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to opinions_url, notice: 'Opinion was successfully destroyed.'
   end
 
   private

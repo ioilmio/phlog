@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @opinions = Opinion.all
-    @my_opinion = @user.opinions.most_recent
+    @user_opinion = @user.opinions.most_recent
     @opinion = @user.opinions.build
   end
 
@@ -19,29 +19,24 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    respond_to do |format|
-      if @user.update(user_params)
-
-        format.html { redirect_to @user, notice: 'user was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.update(user_params)
+      redirect_to @user, notice: 'user was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def following
     @user = User.find(params[:id])
     @users = @user.following
-    render 'show_follow'
+    render '_following'
   end
 
   def followers
     @user = User.find(params[:id])
     @users = @user.followers
 
-    render 'show_follow'
+    render '_follower'
   end
 
   private

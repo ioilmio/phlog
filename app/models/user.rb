@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[facebook github]
 
   has_many :opinions, dependent: :destroy
+  has_one_attached :photo, dependent: :destroy
+  has_one_attached :cover, dependent: :destroy
 
   has_many :active_relationships,
            class_name: 'Relationship',
