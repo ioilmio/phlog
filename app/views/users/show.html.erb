@@ -1,16 +1,12 @@
 <%=render 'layouts/header'%>
 
 <div class="row">
-    <aside class="col-md-6 offset-md-1 rounded bg-light">
+    <aside class="col-md-8 offset-md-2 mt-4 rounded bg-light">
         
-        <section class="user_info">
-            <h1>
-                <%= gravatar_for @user %>
-                <%= @user.username %>
-                <span>has <b> <%= @user.opinions.count %></b> opinions</span>
-                <%= render 'follow_form' if user_signed_in? && !current_user%>
-            </h1>
-            <%= render 'stats'%>
+        <section class="user_info p-2">
+            <%=render 'user_count' %>
+            <%= render 'follow_form'%>
+            <%= render 'stats' %>
         </section>
 
     </aside>
@@ -29,11 +25,11 @@
                 <%= opinion.user.username %>
 
             </div>
+                <h1 class="mt-2 text-center mb-4 bg-light">
+                    <%= opinion.content%>
+                </h1>
                 <div class="d-flex justify-content-center">
                     <%= image_tag opinion.display_image if opinion.image.attached? %>
-                </div>
-                <div class="mt-2 text-center">
-                    <%= opinion.content%>
                 </div>
             </div>
         <div class="mt-2">
