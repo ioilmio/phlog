@@ -10,8 +10,12 @@
 <div class="col-md-4 offset-md-4">
 
 
-<%= form_with(model: @user, local: true) do |f| %>
+<%= form_with(model: @user, local: true, method: 'patch') do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
+<%= f.label 'Profile Photo' %>
+<%= f.file_field :photo, accept: "image/jpeg,image/gif,image/png,image/jpg" %>
+<%= f.label 'Cover image' %>
+<%= f.file_field :cover, accept: "image/jpeg,image/gif,image/png,image/jpg" %>
 <%= f.label :username %>
 <%= f.text_field :username, class: 'form-control' %>
 <%= f.label :email %>
