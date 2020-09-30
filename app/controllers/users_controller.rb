@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_signed_in?, only: %i[index edit update destroy followers following]
+  before_action :user_signed_in?, only: %i[index destroy followers following]
 
   def index
     @users = User.all
@@ -18,11 +18,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    # @user = User.find(params[:id])
-    @user = current_user
-    @user.cover.attach(params[:cover]) if @user.cover.attahced?
+    @user = User.find(current_user.id)
+    @user.cover.attach(params[:cover]) if @user.cover.attached?
     if @user.update(user_params)
-      redirect_to @user, notice: 'user was successfully updated.'
+
+      redirect_to edit_user_path(current_user.id), notice: 'user was successfully updated.'
     else
       render :edit
     end
@@ -44,6 +44,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:id, :username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:id, :username, :email, :password, :password_confirmation, :cover, :photo)
   end
 end

@@ -84,6 +84,6 @@ class User < ApplicationRecord
     return if cover.attached?
 
     cover.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'logo', 'g891.png')),
-                 filename: 'g891.png', content_type: 'image/jpg')
+                 filename: 'g891.png', content_type: 'image/png')
   end
 end

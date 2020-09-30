@@ -1,8 +1,8 @@
 <%=render 'layouts/header'%>
 <div class="cover">
-<%= image_tag(@user.cover) if @user.cover.attached? %>
+<%= image_tag(current_user.cover.attach) if current_user.cover.attached? %>
 <%if current_user == @user%>
-    <%if !current_user.cover.attached?%>
+    <%if current_user.cover.attached?%>
             <%= form_with(model: current_user.cover.attachment, local: true, method: 'post') do |form| %>
             <%= form.label 'change cover image'%>
             <%= form.file_field :cover, accept: "image/jpeg,image/gif,image/png,image/jpg" %>
