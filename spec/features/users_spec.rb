@@ -59,7 +59,7 @@ RSpec.describe 'Create a user', type: :feature do
     fill_in 'user_password_confirmation', with: 'test password'
     click_button 'Sign up'
     sleep 1
-    click_on 'Log out'
+    click_on 'logout-icon'
     fill_in 'user_email', with: 'test@example.com'
     fill_in 'user_password', with: 'test password'
     click_on 'Log in'
@@ -87,7 +87,7 @@ RSpec.describe 'Create a user', type: :feature do
     fill_in 'user_password', with: 'test password'
     fill_in 'user_password_confirmation', with: 'test password'
     click_on 'Sign up'
-    click_on 'New Opinion'
+    click_on 'new-opi-icon'
     sleep 1
     expect(page).to have_content('Write something')
   end
@@ -113,7 +113,7 @@ RSpec.describe 'Create a user', type: :feature do
     fill_in 'user_password', with: 'test password'
     fill_in 'user_password_confirmation', with: 'test password'
     click_on 'Sign up'
-    click_on 'Log out'
+    click_on 'logout-icon'
     click_on 'Sign up'
     fill_in 'user_username', with: 'test user2'
     fill_in 'user_fullname', with: 'test user2'

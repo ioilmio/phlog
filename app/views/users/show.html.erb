@@ -1,7 +1,12 @@
 <%=render 'layouts/header'%>
 
-<div class="row">
-    <aside class="col-md-8 offset-md-2 mt-4 rounded bg-light">
+<div class="cover mb-2">
+    <div class="cover-image">
+        <%= image_tag(@user.cover.attachment) if @user.cover.attached?%>
+    </div>
+</div>
+
+    <aside class="col-md-6 offset-md-3 mt-4 rounded bg-light">
         
         <section class="user_info p-2">
             <%=render 'user_count' %>
@@ -10,9 +15,8 @@
         </section>
 
     </aside>
-</div>
 
-<div class="row">
+
     <div class="col-md p-3 mt-2 mx-auto rounded ">
     <%if current_user == @user%>
      <%= render 'opinions/form', opinion: @new_opinion %>
@@ -21,7 +25,7 @@
         <div class="col-md-6 offset-md-3 mt-2 mb-2 bg-light p-4 rounded">
             <div class="card-body">
             <div class="mb-2">
-                <%= gravatar_for opinion.user %>
+                <%=photo_for(@user) %>
                 <%= opinion.user.username %>
 
             </div>
@@ -43,4 +47,3 @@
         </div>
         <%end%>
     </div>
-</div>

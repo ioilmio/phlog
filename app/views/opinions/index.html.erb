@@ -1,7 +1,18 @@
 <% if user_signed_in?%>
 <%= render 'layouts/header'%>
-<%= render 'opinions/form'%>
-<%= render 'layouts/feed'%>
+    <div class="index-page">
+        
+            <%= render 'opinions/form'%>
+        
+        
+            <%= render 'users/who_to_follow'%>
+        
+        
+        
+            <%= render 'layouts/feed'%>
+        
+    
+    </div>
 <%end%>
 
 

@@ -41,6 +41,12 @@ class User < ApplicationRecord
 
   validates :password_confirmation, presence: true, length: { minimum: 8 }
 
+  # after_commit :add_default_cover, on: %i[create update]
+
+  def not_following_users
+    User.all.where.not(id: following.select(:id)).where.not(id: id).order(created_at: :desc).take(3)
+  end
+
   def feed
     following_ids = "SELECT followed_id FROM relationships
                       WHERE follower_id = :user_id"

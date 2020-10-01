@@ -1,4 +1,4 @@
-@import "bootstrap";
+@import 'bootstrap';
 $bg-color: rgb(67, 108, 163);
 $color: rgb(126, 126, 126);
 $clear: rgb(255, 255, 255);
@@ -7,10 +7,10 @@ $sidebar: rgb(33, 51, 70);
 body {
   color: $color;
   font-family:
-    "Lucida Sans",
-    "Lucida Sans Regular",
-    "Lucida Grande",
-    "Lucida Sans Unicode",
+    'Lucida Sans',
+    'Lucida Sans Regular',
+    'Lucida Grande',
+    'Lucida Sans Unicode',
     Geneva,
     Verdana,
     sans-serif;
@@ -27,11 +27,15 @@ h1 {
 }
 
 .user-gravatar-name {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   margin-bottom: 1rem;
+}
+
+.gravatar {
+  border-radius: 50%;
 }
 
 .navigation {
@@ -45,26 +49,27 @@ h1 {
 }
 
 .navi-header {
+  align-items: center;
+  background-color: $bg-color;
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 100%;
   width: 100vw;
-  background-color: $bg-color;
 }
 
 .navi-sidebar {
+  align-items: center;
+  background-color: $sidebar;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 100vmax;
+  padding: 1em;
   width: 15vw;
-  min-height: 100vh;
-  background-color: $sidebar;
 
   .follow-count {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 
   a {
@@ -73,8 +78,8 @@ h1 {
 }
 
 .opi-content {
-  font-size: 1.5rem;
   background-color: $clear;
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -92,6 +97,19 @@ h1 {
   .follow-avatar {
     height: auto;
     width: 100%;
+  }
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15vw;
+  width: 84vw;
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    object-position: top;
   }
 }
 
@@ -132,11 +150,32 @@ h1 {
 .opi-form {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  width: 60%;
+  margin: auto 30%;
 }
 
 .time-ago {
   font-size: 0.5em;
   text-align: right;
+}
+
+.index-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.who-to-follow {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-top: 2em;
+  width: 18vw;
+
+  .user-to-follow {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+  }
 }
