@@ -19,8 +19,10 @@
     <div class="d-flex justify-content-center">
     </div>
     <div class="d-flex justify-content-end mt-4">
-    <%= link_to 'Edit', edit_opinion_path(@opinion), class:'btn btn-primary mr-2'%>
-    <%= link_to 'Back', opinions_path, class:'btn btn-danger' %>
+    <%= link_to 'Edit', edit_opinion_path(@opinion)%>
+    <span>
+    <%= link_to 'Back', opinions_path%>
+    </span>
     </div>
   </div>
 </div>

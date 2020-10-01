@@ -1,10 +1,20 @@
 <% if user_signed_in?%>
 <%= render 'layouts/header'%>
-<div class="index-page">
-    <%= render 'opinions/form'%>
-    <%= render 'users/who_to_follow'%>
-    <%= render 'layouts/feed'%>
-</div>
+    <div class="index-page">
+        
+        <div>
+            <%= render 'opinions/form'%>
+        </div>
+        
+        <div>
+            <%= render 'users/who_to_follow'%>
+        </div>
+        
+        <div>
+            <%= render 'layouts/feed'%>
+        </div>
+    
+    </div>
 <%end%>
 
 
