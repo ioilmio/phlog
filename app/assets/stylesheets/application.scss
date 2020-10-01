@@ -6,14 +6,8 @@ $sidebar: rgb(33, 51, 70);
 
 body {
   color: $color;
-  font-family:
-  'Lucida Sans',
-  'Lucida Sans Regular',
-  'Lucida Grande',
-  'Lucida Sans Unicode',
-  Geneva,
-  Verdana,
-  sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+  'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
   a {
     text-decoration: none;
@@ -32,6 +26,10 @@ h1 {
   flex-direction: row;
   justify-content: center;
   margin-bottom: 1rem;
+}
+
+.gravatar {
+  border-radius: 50%;
 }
 
 .navigation {
@@ -141,13 +139,10 @@ h1 {
   text-align: right;
 }
 
-
-
 .index-page {
   display: flex;
   flex-direction: column;
 }
-
 
 .who-to-follow {
   align-items: start;
@@ -178,4 +173,3 @@ h1 {
     object-position: top;
   }
 }
-
