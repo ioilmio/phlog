@@ -5,7 +5,8 @@
         <div class="opi-box card">
           
                   <div class="card-text opi-author">
-                    <%= gravatar_for opinion.user %>
+                    <%# <%= gravatar_for opinion.user %> %>
+                    <%=photo_for(opinion.user) %>
                     <%= link_to "#{opinion.user.username}", user_path(opinion.user_id)  %>
                   </div>
           

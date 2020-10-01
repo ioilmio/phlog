@@ -6,7 +6,7 @@
             <% @users.each do |user|%>
             <div class="follow">
                 <div class="follow-avatar">
-                <%= link_to gravatar_for(user, size: 50), user_path(user) %>
+                <%= link_to photo_for(user, size: 50), user_path(user)%>
                     <%= link_to user.username, user_path(user)%>
                 </div>
             </div>

@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.cover.attach(params[:cover]) if @user.cover.attached?
+    @user.photo.attach(params[:photo]) if @user.photo.attached?
     if @user.update(user_params)
 
       sign_in_and_redirect @user, notice: 'user was successfully updated.'
@@ -37,7 +38,6 @@ class UsersController < ApplicationController
   def followers
     @user = User.find(params[:id])
     @users = @user.followers
-
     render '_follower'
   end
 
