@@ -167,7 +167,15 @@ h1 {
 }
 
 .cover {
-  height: 10em;
-  margin-left: 40%;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15vw;
+  width: 84vw;
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    object-position: top;
+  }
 }
+
