@@ -69,37 +69,39 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.username = auth.info.name # assuming the user model has a name
-      user.photo = auth.info.image # assuming the user model has an image
+      # user.photo = auth.info.image # assuming the user model has an image
       # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
     end
   end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      # if (data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info'])
+      #   user.email = data['email'] if user.email.blank?
+      if (data = session['devise.github_data'] && session['devise.github_data']['extra']['raw_info'])
+        user.email = data['email'] if user.email.blank?
+      end
+    end
+  end
 end
 
-  # def self.from_omniauth(auth)
-  #   user = User.find_by(email: auth.info.email)
-  #   if user
-  #     user.provider = auth.provider
-  #     user.uid = auth.uid
-  #     user.save
-  #   else
-  #     user = User.where(provider: auth.provider, uid: auth.uid).first_or_create do |uzer|
-  #       uzer.email = auth.info.email
-  #       uzer.password = Devise.friendly_token[0, 20]
-  #       uzer.username = auth.info.name
-  #       uzer.save
-  #     end
-  #   end
-  #   user
-  # end
-
-# def self.new_with_session(params, session) 
-#   super.tap do |user|
-#     if (data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info'])
-#       user.email = data['email'] if user.email.blank?
-#     elsif (data = session['devise.github_data'] && session['devise.github_data']['extra']['raw_info'])
-#       user.email = data['email'] if user.email.blank?
+# def self.from_omniauth(auth)
+#   user = User.find_by(email: auth.info.email)
+#   if user
+#     user.provider = auth.provider
+#     user.uid = auth.uid
+#     user.save
+#   else
+#     user = User.where(provider: auth.provider, uid: auth.uid).first_or_create do |uzer|
+#       uzer.email = auth.info.email
+#       uzer.password = Devise.friendly_token[0, 20]
+#       uzer.username = auth.info.name
+#       uzer.save
 #     end
 #   end
+#   user
+# end
+
 # end
