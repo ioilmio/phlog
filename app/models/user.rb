@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook github]
+         :omniauthable, omniauth_providers: %i[github]
 
   has_many :opinions, dependent: :destroy
   has_one_attached :photo, dependent: :destroy
@@ -37,9 +37,9 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_insensitive: true }
 
-  # validates :password, presence: true, length: { minimum: 8 }
+  validates :password, presence: true, length: { minimum: 8 }
 
-  # validates :password_confirmation, presence: true, length: { minimum: 8 }
+  validates :password_confirmation, presence: true, length: { minimum: 8 }
 
   def not_following_users
     User.all.where.not(id: following.select(:id)).where.not(id: id).order(created_at: :desc).take(3)
@@ -64,41 +64,42 @@ class User < ApplicationRecord
     following.include?(user)
   end
 
-  # def self.from_omniauth(auth)
-  #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-  #     user.email = auth.info.email
-  #     user.password = Devise.friendly_token[0, 20]
-  #     user.username = auth.info.name # assuming the user model has a name
-  #     user.photo = auth.info.image # assuming the user model has an image
-  #     # If you are using confirmable and the provider(s) you use validate emails,
-  #     # uncomment the line below to skip the confirmation emails.
-  #     # user.skip_confirmation!
-  #   end
-
   def self.from_omniauth(auth)
-    user = User.find_by(email: auth.info.email)
-    if user
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.save
-    else
-      user = User.where(provider: auth.provider, uid: auth.uid).first_or_create do |uzer|
-        uzer.email = auth.info.email
-        uzer.password = Devise.friendly_token[0, 20]
-        uzer.username = auth.info.name
-        uzer.save
-      end
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.username = auth.info.name # assuming the user model has a name
+      user.photo = auth.info.image # assuming the user model has an image
+      # If you are using confirmable and the provider(s) you use validate emails,
+      # uncomment the line below to skip the confirmation emails.
+      # user.skip_confirmation!
     end
-    user
   end
 end
 
-def self.new_with_session(params, session) # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
-  super.tap do |user|
-    if (data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info'])
-      user.email = data['email'] if user.email.blank?
-    elsif (data = session['devise.github_data'] && session['devise.github_data']['extra']['raw_info'])
-      user.email = data['email'] if user.email.blank?
-    end
-  end
-end
+  # def self.from_omniauth(auth)
+  #   user = User.find_by(email: auth.info.email)
+  #   if user
+  #     user.provider = auth.provider
+  #     user.uid = auth.uid
+  #     user.save
+  #   else
+  #     user = User.where(provider: auth.provider, uid: auth.uid).first_or_create do |uzer|
+  #       uzer.email = auth.info.email
+  #       uzer.password = Devise.friendly_token[0, 20]
+  #       uzer.username = auth.info.name
+  #       uzer.save
+  #     end
+  #   end
+  #   user
+  # end
+
+# def self.new_with_session(params, session) 
+#   super.tap do |user|
+#     if (data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info'])
+#       user.email = data['email'] if user.email.blank?
+#     elsif (data = session['devise.github_data'] && session['devise.github_data']['extra']['raw_info'])
+#       user.email = data['email'] if user.email.blank?
+#     end
+#   end
+# end

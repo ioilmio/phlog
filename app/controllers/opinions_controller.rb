@@ -43,8 +43,11 @@ class OpinionsController < ApplicationController
   end
 
   def destroy
-    @opinion.destroy
-    redirect_to opinions_url, notice: 'Opinion was successfully destroyed.'
+    if @opinion.destroy
+      redirect_to opinions_url, notice: 'Opinion was successfully destroyed.'
+    else
+      render :opinion
+    end
   end
 
   private
