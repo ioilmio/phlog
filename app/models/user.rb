@@ -78,9 +78,11 @@ class User < ApplicationRecord
     end
   end
 
-  def self.new_with_session(params, session)
+  def self.new_with_session(params, session) # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
     super.tap do |user|
       if (data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info'])
+        user.email = data['email'] if user.email.blank?
+      elsif (data = session['devise.github_data'] && session['devise.github_data']['extra']['raw_info'])
         user.email = data['email'] if user.email.blank?
       end
     end
