@@ -86,6 +86,7 @@ class User < ApplicationRecord
         uzer.email = auth.info.email
         uzer.password = Devise.friendly_token[0, 20]
         uzer.username = auth.info.name
+        uzer.save
       end
     end
     user
