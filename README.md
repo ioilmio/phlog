@@ -4,6 +4,8 @@
 # Phlog
 
 Hi! This is a full featured social media redesign called **Phlog**
+You can register, log in using **Devise**, publish new opinions, also with images, edit and destroy them, update your profile and cover image, 
+you can follow other users and get followed too!!
 
 ![Screencast from 06-10-2020 05 09 11](https://user-images.githubusercontent.com/51195150/95154490-3aea8600-0792-11eb-9afe-df6b7965c383.gif)
 
@@ -20,8 +22,16 @@ You can check this project online at (https://phlog-it.herokuapp.com)
 - Ruby on Rails 6.0.3
 - Rubocop 0.83
 - VSCode
-- Ruby guides (https://www.rubyguides.com/)
+- and the Ruby guides's help (https://www.rubyguides.com/)
 
+## Used Gem
+
+- Aws S3 (cloud storage)
+- Devise (user authentication)
+- Simplecov (test coverage)
+- Bullet (n+1 queries problem detection)
+- Bootstrap 5 alpha (styling
+- MiniMagick (image)
 
 To get a local copy up and running follow these simple example steps.
 
