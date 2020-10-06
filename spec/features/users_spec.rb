@@ -100,7 +100,7 @@ RSpec.describe 'Create a user', type: :feature do
     fill_in 'user_password', with: 'test password'
     fill_in 'user_password_confirmation', with: 'test password'
     click_on 'Sign up'
-    click_on 'Hello,test user'
+    click_on 'test user'
     expect(page).to have_content('test user')
   end
   scenario 'can edit his own profile' do

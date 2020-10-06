@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_signed_in?, only: %i[index destroy followers following]
+  before_action :user_signed_in?, only: %i[destroy followers following]
 
   def show
     @user = User.find(params[:id])

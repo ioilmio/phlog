@@ -270,7 +270,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   config.omniauth :github, ENV['GH_ID'], ENV['GH_SECRET'], scope: 'user,public_repo'
-  config.omniauth :facebook, ENV['FB_ID'], ENV['FB_SECRET'], token_params: { parse: :json }
+  config.omniauth :facebook, ENV['FB_ID'], ENV['FB_SECRET'], token_params: { parse: :json },
+                                                             scope: 'email', info_fields: 'email,name'
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

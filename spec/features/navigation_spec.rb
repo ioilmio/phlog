@@ -58,7 +58,7 @@ RSpec.describe 'User navigation', type: :feature do
     fill_in 'user_password', with: 'test password'
     fill_in 'user_password_confirmation', with: 'test password'
     click_on 'Sign up'
-    click_on 'Hello,test user'
+    click_on 'test user'
     sleep 1
     expect(page).to have_content('test user')
   end
