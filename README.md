@@ -35,7 +35,7 @@ Clone this repo on your pc using a terminal and typing
 
 ``git clone https://github.com/ioilmio/phlog.git``
 
-then run ``bundle install``
+then run ``bundle install`` and `rails db:migrate`
 
 you can run the tests suite using 
  ``rspec`` in your terminal
@@ -43,9 +43,6 @@ you can run the tests suite using
 
 
 ![Screencast from 06-10-2020 05 11 11](https://user-images.githubusercontent.com/51195150/95154599-784f1380-0792-11eb-9bc6-1ed47fb57a7d.gif)
-
-
-
 
 
 
