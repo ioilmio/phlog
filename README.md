@@ -5,16 +5,13 @@
 
 Hi! This is a full featured social media redesign called **Phlog**
 
-![Screenshot_2020-09-29 Phlog](https://user-images.githubusercontent.com/51195150/94496620-2daf2380-01f5-11eb-9e66-ee6eea8cea99.png)
+![Screencast from 06-10-2020 05 09 11](https://user-images.githubusercontent.com/51195150/95154490-3aea8600-0792-11eb-9afe-df6b7965c383.gif)
 
 
 
 ## Live Demo
 
 You can check this project online at (https://phlog-it.herokuapp.com)
-![Screenshot_2020-09-29 Phlog(1)](https://user-images.githubusercontent.com/51195150/94496666-4ae3f200-01f5-11eb-843c-3d148e6ce195.png)
-
-
 
 
 ## Built With
@@ -40,9 +37,12 @@ Clone this repo on your pc using a terminal and typing
 
 then run ``bundle install``
 
+you can run the tests suite using 
+ ``rspec`` in your terminal
 
-![Screenshot_2020-09-29 Phlog(2)](https://user-images.githubusercontent.com/51195150/94496593-1a9c5380-01f5-11eb-8cf4-9a4f40ae8bf1.png)
 
+
+![Screencast from 06-10-2020 05 11 11](https://user-images.githubusercontent.com/51195150/95154599-784f1380-0792-11eb-9bc6-1ed47fb57a7d.gif)
 
 
 
