@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-md-6 follow-stats">
+            <span class="follower-count bg-light p-1 rounded mr-2 bg-light">
+                <%= link_to "#{@user.following.count} Following ", following_user_path(@user), class: 'following-count bg-light rounded mr-2'%>
+            </span>
+            <span class="follower-count bg-light p-1 rounded mr-2 bg-light">
+                <%= link_to "#{@user.followers.count} Follower ", followers_user_path(@user), class: 'follower-count bg-light p-1 rounded mr-2'%>
+            </span>
+    </div>
+</div>

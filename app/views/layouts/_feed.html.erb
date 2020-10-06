@@ -1,0 +1,34 @@
+    <div class="col-md-6 offset-md-3">
+
+      <% @opinions.each do |opinion| %>
+        
+        <div class="opi-box card">
+          
+                  <div class="card-text opi-author">
+                    <%=photo_for(opinion.user) %>
+                    <%= link_to "#{opinion.user.username}", user_path(opinion.user_id)  %>
+                  </div>
+          
+                <div class="card-body">
+                      <%= image_tag opinion.display_image if opinion.image.attached? %>
+                
+                <div>
+                  <%= opinion.content %>
+                </div>
+                
+                <div class="time-ago text-align-right">
+                  <%= time_ago_in_words(opinion.created_at)%> ago
+                </div>
+              </div>
+        
+                <div class="card-footer">
+                  <span><%= link_to 'Show', opinion %></span>
+                  <% if current_user.id == opinion.user_id%>
+                  <span><%= link_to 'Edit', edit_opinion_path(opinion) %></span>
+                  <span><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+                  <%end%>
+                </div>
+          </div>
+      <% end %>
+      </div>
+    </div>

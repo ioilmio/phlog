@@ -1,0 +1,141 @@
+<%if user_signed_in?%>
+<div class="navigation">
+
+<div class="navi-sidebar">
+  <div class="user-gravatar-name">
+      <div>
+        <%=link_to photo_for(current_user), current_user %>
+      </div>
+      <span>
+        <%= link_to "Hello,#{current_user.username}", current_user, class: 'nav-link' %>
+      </span>
+   
+  </div>
+  <div class="nav-stats mb-4">
+      <%= render 'users/current_user_stats'%>
+  </div>
+  <div class="sidebar-link">
+      <div><%= link_to 'Home', root_path%></div>
+      <div><%= link_to 'Profile', user_path(current_user)%></div>
+      <div><%= link_to 'Settings',edit_user_path(current_user) %></div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg mb-2 navi-header">
+    <div class="container-fluid d-flex">
+      <div class="nav-menu-list">
+          <div class="nav-item">
+          <%= link_to ('<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="10em"
+   height="10em"
+   viewBox="0 0 200 150"
+   version="1.1"
+   id="svg8">
+  <defs
+     id="defs2">
+    <rect
+       x="20.190266"
+       y="46.354326"
+       width="203.44652"
+       height="74.078103"
+       id="rect889" />
+    <rect
+       x="38.411319"
+       y="48.082215"
+       width="180.64329"
+       height="70.377436"
+       id="rect883" />
+  </defs>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     style="fill:#000000">
+    <g
+       id="g910"
+       style="fill:#000000">
+      <g
+         id="g891">
+        <rect
+           style="fill:#000000;fill-rule:evenodd;stroke-width:6.065;fill-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;stroke:#fffffe;stroke-opacity:1"
+           id="rect10"
+           width="82.56842"
+           height="79.801239"
+           x="11.3176"
+           y="26.87652"
+           rx="7" />
+        <ellipse
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="path879"
+           cx="77.578659"
+           cy="40.45174"
+           rx="3.9066458"
+           ry="3.7942324" />
+        <text
+           xml:space="preserve"
+           id="text887"
+           style="font-style:normal;font-weight:normal;font-size:50.0944px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect889);fill:#000000;fill-opacity:1;stroke:none;"><tspan
+             x="20.189453"
+             y="90.675317"><tspan
+               style="fill:#ffffff">Ph</tspan><tspan
+               style="font-size:50.0944px;fill:#000000"> Log</tspan></tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
+').html_safe, opinions_path, class: 'mb-4' %>
+
+          </div>
+
+    
+
+          </div>
+            <div class="nav-setting d-flex ml-auto">
+            <div>
+                          <%= link_to ('<svg width="1.7em" height="1.7em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                        </svg>').html_safe, new_opinion_path, class:'navi-icon', id:'new-opi-icon' %>
+            </div>
+              <div class="ml-2">
+
+                <%= link_to ('<svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                            </svg>').html_safe, edit_user_path(current_user), class:'navi-icon', id:'user-profile-icon' %>
+                        
+             </div>
+              <div class="ml-2">
+                <%= link_to ('<svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-door-open" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M1 15.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM11.5 2H11V1h.5A1.5 1.5 0 0 1 13 2.5V15h-1V2.5a.5.5 0 0 0-.5-.5z"/>
+                            <path fill-rule="evenodd" d="M10.828.122A.5.5 0 0 1 11 .5V15h-1V1.077l-6 .857V15H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117z"/>
+                            <path d="M8 9c0 .552.224 1 .5 1s.5-.448.5-1-.224-1-.5-1-.5.448-.5 1z"/>
+                            </svg>').html_safe, destroy_user_session_path, method: :delete, class:'navi-icon', id:'logout-icon' %>
+              </div>
+
+            </div>
+            <%else%>
+            <div>
+              <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-light mr-2 nav-link' %>
+            </div>
+            <div>
+              <%= link_to 'Log in', new_user_session_path, class: 'btn btn-light nav-link'%>
+            </div>
+            <%end%>
+  </div>
+</div>
+      
+</div>

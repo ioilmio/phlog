@@ -1,0 +1,181 @@
+@import 'bootstrap';
+$bg-color: rgb(67, 108, 163);
+$color: rgb(126, 126, 126);
+$clear: rgb(255, 255, 255);
+$sidebar: rgb(33, 51, 70);
+
+body {
+  color: $color;
+  font-family:
+    'Lucida Sans',
+    'Lucida Sans Regular',
+    'Lucida Grande',
+    'Lucida Sans Unicode',
+    Geneva,
+    Verdana,
+    sans-serif;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+h1 {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.user-gravatar-name {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.gravatar {
+  border-radius: 50%;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  height: 20vh;
+}
+
+.navi-icon {
+  color: $sidebar;
+}
+
+.navi-header {
+  align-items: center;
+  background-color: $bg-color;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100vw;
+}
+
+.navi-sidebar {
+  align-items: center;
+  background-color: $sidebar;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vmax;
+  padding: 1em;
+  width: 15vw;
+
+  .follow-count {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    color: $bg-color;
+  }
+}
+
+.opi-content {
+  background-color: $clear;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.follow-stats {
+  color: $bg-color;
+}
+
+.follow {
+  background-color: $clear;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2rem;
+
+  .follow-avatar {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15vw;
+  width: 84vw;
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    object-position: top;
+  }
+}
+
+.opi-box {
+  margin-top: 1em;
+  padding: 1rem;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  .opi-author {
+    margin-left: 2em;
+    text-align: left;
+  }
+
+  .card-body {
+    font-size: 1.5em;
+    text-align: left;
+
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  .card-footer {
+    text-align: right;
+
+    a {
+      text-align: right;
+      text-decoration: none;
+    }
+  }
+}
+
+.opi-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto 30%;
+}
+
+.time-ago {
+  font-size: 0.5em;
+  text-align: right;
+}
+
+.index-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.who-to-follow {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-top: 2em;
+  width: 18vw;
+
+  .user-to-follow {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+  }
+}
