@@ -7,7 +7,6 @@
 </div>
 
     <aside class="col-md-6 offset-md-3 mt-4 rounded bg-light">
-        
         <section class="user_info p-2">
             <%=render 'user_count' %>
             <%= render 'follow_form'%>
@@ -33,15 +32,16 @@
                     <%= opinion.content%>
                 </h1>
                 <div class="d-flex justify-content-center">
-                    <%= image_tag opinion.display_image if opinion.image.attached? %>
+                    <%= image_tag opinion.image if opinion.image.attached? %>
                 </div>
             </div>
         <div class="mt-2">
         <%= time_ago_in_words(opinion.created_at)%> ago
         </div>
+            <span><%= link_to 'Show', opinion %></span>
             <%if current_user == @user%>
-            <%= link_to 'Edit', edit_opinion_path(opinion), class:'btn btn-primary mr-2'%>
-            <span><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger mr-2' %></span>
+            <%= link_to 'Edit', edit_opinion_path(opinion), class:'mr-2'%>
+            <span><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' }, class:'mr-2' %></span>
             <%end%>
 
         </div>

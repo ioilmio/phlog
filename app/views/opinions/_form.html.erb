@@ -1,5 +1,5 @@
+<%= render "devise/shared/error_messages", resource: @opinion %>
 <div class="opi-form bg-light p-3 mt-4 rounded-lg">
-  <%= render "devise/shared/error_messages", resource: @opinion %>
 
 Write something
 <%= form_with(model: @opinion, local: true) do |form| %>
@@ -9,7 +9,9 @@ Write something
     <span class="image-upload">
       <%= form.file_field :image, accept: "image/jpeg,image/gif,image/png,image/jpg" %>
     </span>
-    <%= form.submit class:'btn btn-primary rounded mt-2' %>
+    <%= form.submit class:'mt-2' %>
+        <%= link_to ' Back', opinions_path%>
+
   </div>
   </div>
 <% end %>
@@ -26,3 +28,4 @@ Write something
   });
   
 </script>
+

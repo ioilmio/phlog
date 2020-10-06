@@ -6,6 +6,6 @@
       "scss/at-rule-no-unknown": true,
       "csstree/validator": true
     },
-    "ignoreFiles": ["build/**", "dist/**", "**/reset*.css", "**/bootstrap*.css", "coverage/assets/0.12.2/application.css"]
+    "ignoreFiles": ["build/**", "dist/**", "**/reset*.css", "**/bootstrap*.css", "coverage/assets/0.12.2/application.css","coverage/assets/0.12.3/application.css"]
   }
   

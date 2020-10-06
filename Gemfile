@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'active_storage_validations', '~> 0.9.0'
-gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
+gem 'aws-sdk-s3'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'image_processing'

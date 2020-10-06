@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   before_action :user_signed_in?, only: %i[index destroy followers following]
 
-  def index
-    @users = User.all
-    @opinion = current_user.opinions.build if user_signed_in?
-  end
-
   def show
     @user = User.find(params[:id])
     @opinions = Opinion.all
@@ -19,8 +14,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.cover.attach(params[:cover]) if @user.cover.attached?
-    @user.photo.attach(params[:photo]) if @user.photo.attached?
+
     if @user.update(user_params)
 
       sign_in_and_redirect @user, notice: 'user was successfully updated.'

@@ -1,13 +1,15 @@
+<%content_for :header do %>
+
 <%if user_signed_in?%>
 <div class="navigation">
 
 <div class="navi-sidebar">
-  <div class="user-gravatar-name">
+  <div class="user-gravatar-name ml-3">
       <div>
         <%=link_to photo_for(current_user), current_user %>
       </div>
       <span>
-        <%= link_to "Hello,#{current_user.username}", current_user, class: 'nav-link' %>
+        <%= link_to "#{current_user.username}", current_user, class: 'nav-link' %>
       </span>
    
   </div>
@@ -139,3 +141,5 @@
 </div>
       
 </div>
+
+<%end %>
